@@ -33,10 +33,14 @@ class ExceptionHandler extends Handle
             $this->msg = $e->msg;
             $this->errorCode = $e->errorCode;
         } else {
-            $this->code = 500;
-            $this->msg = 'Internal server error';
-            $this->errorCode = 999;
-            $this->record($e);
+            if(config('app_debug')) {
+                return parent::render($e);
+            } else {
+                $this->code = 500;
+                $this->msg = 'Internal server error';
+                $this->errorCode = 999;
+                $this->record($e);
+            }
         }
 
         $request = Request::instance();
@@ -47,7 +51,6 @@ class ExceptionHandler extends Handle
         ];
 
         return json($result, $this->code);
-
     }
 
     private function record(Exception $e)

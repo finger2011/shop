@@ -9,7 +9,7 @@
 namespace app\api\validate;
 
 
-use think\Exception;
+use app\lib\exception\ParameterException;
 use think\Request;
 use think\Validate;
 
@@ -22,10 +22,11 @@ class BaseValidate extends Validate
         $params = $request->param();
 
         //校验参数
-        $result = $this->check($params);
+        $result = $this->batch()->check($params);
         if(!$result) {
-            $error = $this->error;
-            throw new Exception($error);
+            throw new ParameterException([
+                'msg' => $this->error
+            ]);
         } else {
             return true;
         }
