@@ -10,7 +10,6 @@ namespace app\lib\exception;
 
 
 use think\Exception;
-use Throwable;
 
 class BaseException extends Exception
 {
@@ -32,10 +31,10 @@ class BaseException extends Exception
             $this->code = $param['code'];
         }
         if(array_key_exists('msg', $param)) {
-            $this->code = $param['msg'];
+            $this->msg = $param['msg'];
         }
         if(array_key_exists('errorCode', $param)) {
-            $this->code = $param['errorCode'];
+            $this->errorCode = $param['errorCode'];
         }
     }
 

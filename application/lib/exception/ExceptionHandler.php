@@ -27,6 +27,7 @@ class ExceptionHandler extends Handle
 
     public function render(Exception $e)
     {
+
         if($e instanceof BaseException) {
             //自定义异常
             $this->code = $e->code;
@@ -49,7 +50,6 @@ class ExceptionHandler extends Handle
             'error_code' => $this->errorCode,
             'request_url' => $request->url()
         ];
-
         return json($result, $this->code);
     }
 
