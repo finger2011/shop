@@ -9,12 +9,17 @@
 namespace app\api\model;
 
 
+use think\Db;
+
 class Banner
 {
 
-    public static function getBanner()
+    public static function getBanner($id)
     {
-        return array();
+        $result = Db::table('banner_item')
+            ->where('banner_id', '=', $id)
+            ->select();
+        return $result;
     }
 
 }
