@@ -21,20 +21,17 @@ class Banner
      * @url /banner/:id
      * @http GET
      * @param $id int banner的id
-     * @return array
-     * @throws
      */
     public function getBanner($id)
     {
         (new IDMustBePositiveInt())->goCheck();
 
-        $banner = BannerModel::getBanner($id);
+        $banner = BannerModel::getBannerByID($id);
         if(!$banner) {
             throw new BannerMissException();
         }
 
-
-        return json($banner, 200);
+        return $banner;
     }
 
 }
