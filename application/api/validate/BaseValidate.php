@@ -24,8 +24,6 @@ class BaseValidate extends Validate
         //校验参数
         $result = $this->batch()->check($params);
         if(!$result) {
-            if(is_array($this->error))
-                $this->error = implode(';', $this->error);
             throw new ParameterException([
                 'msg' => $this->error
             ]);
