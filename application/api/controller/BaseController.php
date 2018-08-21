@@ -6,7 +6,7 @@
  * Time: 上午8:35
  */
 
-namespace app\api\controller\v1;
+namespace app\api\controller;
 
 
 use app\api\service\Token as TokenService;

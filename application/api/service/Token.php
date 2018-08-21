@@ -80,4 +80,15 @@ class Token
         }
     }
 
+    public static function isValidOperate($checkedUID) {
+        if(!$checkedUID) {
+            throw new Exception('checked UID 不存在');
+        }
+        $currentUID = self::getCurrentUid();
+        if($currentUID == $checkedUID) {
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -8,5 +8,6 @@
 
 return [
     'token_salt' => 'zhangqiqi',
-    'pay_back_url' => ''
+    'pay_back_url' => '',
+    'project_name' => '测试商城'
 ];

@@ -127,6 +127,16 @@ class Order
         return $userAddress->toArray();
     }
 
+    public function checkOrderStock($orderID) {
+        $oProducts = OrderProduct::where('order_id', '=', $orderID)
+            ->select();
+        $this->outProducts = $oProducts;
+        $this->DBProducts = $this->getProductByOrder($oProducts);
+
+        $status = self::getOrderStatus();
+        return $status;
+    }
+
     private function getOrderStatus() {
         $status = [
             'pass' => true,
