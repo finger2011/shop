@@ -10,7 +10,7 @@ namespace app\api\service;
 
 use think\Loader;
 
-Loader::import('WxPay.WxPay', EXTEND_PATH, '.Config.Interface.php');
+Loader::import('WxPay.WxPay', EXTEND_PATH, '.Api.php');
 class WxPayConfig extends \WxPayConfigInterface
 {
     //=======【基本信息设置】=====================================
