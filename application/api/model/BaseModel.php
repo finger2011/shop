@@ -11,7 +11,7 @@ class BaseModel extends Model
     {
         $url = $value;
         if(1 == $data['from']) {
-            $url = config('setting.img_prefix').$value;
+            $url = config('setting.img_prefix'). '/images' .$value;
         }
         return $url;
     }
