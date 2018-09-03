@@ -20,7 +20,7 @@ use app\lib\exception\UserException;
 class Address extends BaseController
 {
     protected $beforeActionList = [
-        'checkPrimaryScope' => ['only' => 'createOrUpdateAddress']
+        'checkPrimaryScope' => ['only' => 'createOrUpdateAddress，getUserAddress']
     ];
 
     public function createOrUpdateAddress() {
